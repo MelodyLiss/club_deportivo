@@ -1,13 +1,17 @@
 [
     {
-        "id" : "1",
+        "id": "1",
         "nombre": "Karate",
         "precio": 25000
     },
-
     {
-        "id" : "2",
+        "id": "2",
         "nombre": "Boxeo",
         "precio": 35000
+    },
+    {
+        "id": "3a998b58-a415-4dba-b997-88de72d01f1b",
+        "nombre": "ajezdres",
+        "precio": 69000
     }
 ]
