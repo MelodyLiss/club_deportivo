@@ -1,5 +1,3 @@
-const { log } = require('console');
-const { json } = require('express');
 const fs = require('fs/promises');
 const { v4: uuidv4 } = require('uuid');
 
@@ -57,9 +55,7 @@ const findByIdDeportes = async (id) => {
             msg: "Error en el servidor",
             deportes: []
         }
-
     }
-
 }
 
 const insertDeportes = async (nombre, precio) => {
@@ -95,11 +91,9 @@ const updateFromIdDeportes = async (id, nombre, precio) => {
         const datos = await fs.readFile('./data/deportes.json', 'utf8');
         const deportes = JSON.parse(datos);
         const deporteActualizar = deportes.find((dato) => {
-            return dato.id == dato;
+            return dato.id == id;
         })
-
         if (deporteActualizar) {
-
             if (nombre) {
                 deporteActualizar.nombre = nombre;
             } if (precio) {
@@ -107,22 +101,21 @@ const updateFromIdDeportes = async (id, nombre, precio) => {
             }
             fs.writeFile('./data/deportes.json', JSON.stringify(deportes))
             return {
-                msg: `Deporte agregado correctamente`,
+                msg: `El deporte con id ${id} se actualizó`,
                 deportes
             }
         }
-
-
-
+        return {
+            msg: `El deporte con id ${id} no existe para actualizar`,
+            deportes
+        }
     }
-
     catch (error) {
         console.log(error);
         return {
             msg: "Error en el servidor",
             deportes: []
         }
-
     }
 }
 

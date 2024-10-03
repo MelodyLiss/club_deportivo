@@ -1,7 +1,6 @@
 const Server = require("./models/server");
 const server = new Server();
 
-
 const {findAllDeportes,
     findByIdDeportes,
     insertDeportes,
@@ -20,6 +19,9 @@ server.listen();
 //     console.log(datos);
 // })
 
-// insertDeportes('ajezdres', 69000);
+// insertDeportes('Karate', 69000);
 
-updateFromIdDeportes(1, "natacion", 45666)
+// updateFromIdDeportes(2, "atletismo", 36700);
+
+// deletebyIdDeportes(1)
+
