@@ -1,6 +1,41 @@
+
+//Barra de navegación
+
+.navbar{
+    background-color: rgb(165, 11, 11);
+    .navbar-brand{
+        font-size: 2rem;
+        color:rgb(214, 211, 211) !important;
+        font-weight: bold;
+    }
+    a{
+        color: beige;
+    }
+}
+
+
+// Tarjetas deportes
+
+.card-title{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+}
+
+
+    .valor{
+        font-weight: bold;
+        color: rgb(18, 18, 86);
+        font-size: 1.1rem;
+        font-variant: small-caps;
+    }
+
+
+
+
+
 h2{
-    background-color: black;
-    color: white;
+    
     font-size: 3rem;
     text-align: center;
     margin: 0 auto;
