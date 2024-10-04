@@ -1,1 +1,25 @@
-[{"id":"2","nombre":"atletismo","precio":36700}]
+[
+    {
+        "id": "1",
+        "nombre": "atletismo",
+        "precio": 36700
+    },
+
+    {
+        "id": "2",
+        "nombre": "natacion",
+        "precio": 45700
+    },
+
+    {
+        "id": "3",
+        "nombre": "katare",
+        "precio": 36700
+    },
+
+    {
+        "id": "4",
+        "nombre": "atletismo",
+        "precio": 36700
+    }
+]
