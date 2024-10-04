@@ -1,7 +1,6 @@
 const fs = require('fs/promises');
 const { v4: uuidv4 } = require('uuid');
 
-//mostrar todos los deportes con fs
 const findAllDeportes = async () => {
 
     try {
