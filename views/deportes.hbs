@@ -1,0 +1,16 @@
+<h1>Listado de deportes</h1>
+
+<ul>
+  {{#if deportes.length}}
+    {{#each deportes}}
+      <li>{{this.nombre}} a ${{this.precio}}</li>
+    {{/each}}
+  {{else}}
+    <li>No hay deportes registrados.</li>
+  {{/if}}
+</ul>
+
+
+<h2> ver por id</h2>
+
+{{deporteid}}

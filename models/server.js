@@ -4,7 +4,18 @@ class Server{
 
     constructor(){
         this._app = express();
-        this._port = 4000;
+        this._port = 3000;
+        this.routers();
+        this.middlewares()
+    };
+
+    middlewares(){
+        this._app.set('view engine', 'hbs'); 
+        this._app.use(express.urlencoded({extended:true}));
+    }
+
+    routers(){
+        this._app.use('/deportes',require('../routers/rutas.js'));
     }
 
     listen() {
@@ -12,8 +23,8 @@ class Server{
         const Colorlog = "\x1b[45m"; 
 
     
-        this._app.listen(3000, () => {
-            console.log(`${Colorlog} Servidor inicializado en el puerto 3000  ${reset}`);
+        this._app.listen(this._port, () => {
+            console.log(`${Colorlog} Servidor inicializado en el puerto ${this._port}  ${reset}`);
         });
     }
 
