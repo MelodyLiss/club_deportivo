@@ -5,7 +5,9 @@ const {findByAllController,findByIdController,insertController,updataController,
 
 
 router.get('/',findByAllController);
-router.get('/findrById',findByIdController);
+router.get('/panel', findByAllController);
+
+router.get('/findById',findByIdController);
 router.post('/insert',insertController);
 router.post('/update',updataController);
 router.get('/delete',deleteController);

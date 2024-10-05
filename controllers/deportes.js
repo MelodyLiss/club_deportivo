@@ -3,14 +3,15 @@ const {findAllDeportes,findByIdDeportes,insertDeportes,updateFromIdDeportes,dele
 
 const findByAllController = async (req = request, res= response)=>{
     const respuesta = await findAllDeportes();
-    res.render('deportes', { deportes: respuesta.deportes })
+    const view = req.path === '/panel' ? 'panel-admin' : 'deportes';
+    res.render(view, { deportes: respuesta.deportes })
 }
 
 const findByIdController = async (req = request, res= response)=>{
-    const deporteById = req.query.id
+    const id = req.query.id
     const respuesta = await findByIdDeportes(id);
     res.render('deportes',{
-        deporteid:respuesta.deportes
+        id: respuesta.deportes
     });
 }
 
