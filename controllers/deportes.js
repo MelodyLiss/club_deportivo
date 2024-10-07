@@ -10,16 +10,17 @@ const findByAllController = async (req = request, res= response)=>{
 const findByIdController = async (req = request, res= response)=>{
     const id = req.query.id
     const respuesta = await findByIdDeportes(id);
-    res.render('deportes',{
-        id: respuesta.deportes
+    res.render('panel-admin',{
+        deportes: respuesta.deportes
     });
 }
 
 const insertController = async (req = request, res= response)=>{
-    const nombre = req.body.nombre
-    const precio = req.body.precio
-    const nuevoDeporte = await  insertDeportes();
-    res.render( 'deportes',nuevoDeporte);
+    console.log('Entire req.body:', req.body);
+    const {nombre ,precio} = req.body;
+    const nuevoDeporte = await  insertDeportes(nombre,precio);
+    res.render( 'panel-admin',{
+        deportes: nuevoDeporte.deportes});
 }
 
 const updataController = async (req = request, res= response)=>{
@@ -32,10 +33,10 @@ const updataController = async (req = request, res= response)=>{
 }
 
 const deleteController = async (req = request, res= response)=>{
-    const id = dato0
-
-    const eliminacionDeporte = await deletebyIdDeportes();
-    res.render(eliminacionDeporte)
+    const id = req.query.id;
+    const respuesta = await deletebyIdDeportes(id);
+    res.render('panel-admin',{
+        deportes: deportes});
 }
 
 module.exports = {

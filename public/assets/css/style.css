@@ -31,4 +31,37 @@ h2 {
   padding: 1rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.buscar-id {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.table {
+  margin-bottom: 5rem;
+}
+
+fieldset {
+  background-color: rgb(230, 222, 222);
+  padding: 1rem;
+  margin: 0 auto;
+  text-align: center;
+}
+fieldset legend {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+footer {
+  background-color: rgb(22, 18, 18);
+  color: whitesmoke;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 5rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }/*# sourceMappingURL=style.css.map */

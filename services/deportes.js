@@ -65,9 +65,9 @@ const insertDeportes = async (nombre, precio) => {
         deportes.push({
             id,
             nombre,
-            precio
+            precio,
         });
-        fs.writeFile('./data/deportes.json', JSON.stringify(deportes))
+        await fs.writeFile('./data/deportes.json', JSON.stringify(deportes, null, 2));
 
         return {
             msg: `Deporte insertado correctamente`,

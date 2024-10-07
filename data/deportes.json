@@ -1,25 +1,32 @@
 [
-    {
-        "id": "1",
-        "nombre": "atletismo",
-        "precio": 36700
-    },
-
-    {
-        "id": "2",
-        "nombre": "natacion",
-        "precio": 45700
-    },
-
-    {
-        "id": "3",
-        "nombre": "katare",
-        "precio": 36700
-    },
-
-    {
-        "id": "4",
-        "nombre": "atletismo",
-        "precio": 36700
-    }
+  {
+    "id": "1",
+    "nombre": "atletismo",
+    "precio": 36700
+  },
+  {
+    "id": "2",
+    "nombre": "natacion",
+    "precio": 45700
+  },
+  {
+    "id": "3",
+    "nombre": "katare",
+    "precio": 36700
+  },
+  {
+    "id": "4",
+    "nombre": "tenis de mesa",
+    "precio": 15000
+  },
+  {
+    "id": "5",
+    "nombre": "boxeo",
+    "precio": 45000
+  },
+  {
+    "id": "250afe41-7397-4321-b61b-10201fc80475",
+    "nombre": "hola",
+    "precio": "10"
+  }
 ]

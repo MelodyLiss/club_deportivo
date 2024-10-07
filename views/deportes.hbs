@@ -1,118 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/5cd53b1ea9.js" crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <title>Club deportivo</title>
-</head>
+{{>head}}
 
 <body>
 
-
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="#"><i class="fa-solid fa-stopwatch-20"></i> <i class="fa-solid fa-baseball"></i> <i
-          class="fa-solid fa-dumbbell"></i> CLUB DEPORTIVO</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/deportes">Deportes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/deportes/panel">Panel</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <div id="carouselExampleCaptions" class="carousel slide">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-        aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-        aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="/assets/img/img1.png" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="/assets/img/img2.png" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="/assets/img/img3.png" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-
+  {{>navbar}}
+  {{>header}}
   <main>
     <h2>Listado de deportes</h2>
 
     <form class="d-flex container" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar por deporte" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
+      <input class="form-control me-2" type="search" placeholder="Buscar deporte" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </form>
 
 
 
-      <section class="container row w-100 mx-auto g-0">
+    <section class="container row w-100 mx-auto g-0">
 
       {{#if deportes.length}}
 
       {{#each deportes}}
 
-        <div class="card col-4 m-4" style="width: 18rem;">
-          <img src="/assets/img/deportes-general.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{this.nombre}}</h5>
-            <p class="card-text">Mejora tu condición física y mental con nuestro programa de entrenamiento personalizado</p>
-            <p class=" valor">${{this.precio}} mensual </p>
-            <a href="#" class="btn btn-danger">empezar</a>
-          </div>
+      <div class="card col-4 m-4" style="width: 18rem;">
+        <img src="/assets/img/deportes-general.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{this.nombre}}</h5>
+          <p class="card-text">Mejora tu condición física y mental con nuestro programa de entrenamiento personalizado
+          </p>
+          <p class=" valor">${{this.precio}} mensual </p>
+          <a href="#" class="btn btn-danger">empezar</a>
         </div>
+      </div>
 
       {{/each}}
       {{/if}}
+
+      {{#unless deportes.length}}
+
+      <div class="mx-auto container">
+        <h3 class="text-center ">NO HAY DEPORTES REGISTRADOS</h3>
+        <img src="/assets/img/deportes-img2.jpg" alt="imagen deportes" class="w-75">
+      </div>
+
+      {{/unless}}
 
     </section>
   </main>
@@ -122,11 +54,8 @@
 
 
 
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+  {{>footer}}
+  {{>script}}
 </body>
 
 </html>

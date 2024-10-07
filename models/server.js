@@ -1,18 +1,25 @@
 const express = require('express');
+const hbs = require('hbs');
+const path = require('path');
+
 
 class Server{
 
     constructor(){
         this._app = express();
         this._port = 3000;
+        this.middlewares();
         this.routers();
-        this.middlewares()
+
     };
 
     middlewares(){
         this._app.set('view engine', 'hbs'); 
+        this._app.use(express.json());
+        hbs.registerPartials(path.join(__dirname, '../views/partials'));
         this._app.use(express.urlencoded({extended:true}));
         this._app.use(express.static('public'));
+
 
     }
 
