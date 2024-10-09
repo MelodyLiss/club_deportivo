@@ -1,32 +1,47 @@
 [
   {
-    "id": "1",
-    "nombre": "atletismo",
-    "precio": 36700
+    "id": "1fd354a1",
+    "nombre": "Atletismo Junior",
+    "precio": "28.000"
   },
   {
-    "id": "2",
-    "nombre": "natacion",
-    "precio": 45700
+    "id": "40e0cffb",
+    "nombre": "Taekwondo",
+    "precio": "35.000"
   },
   {
-    "id": "3",
-    "nombre": "katare",
-    "precio": 36700
+    "id": "90aad083",
+    "nombre": "Gimnasia Ritmica",
+    "precio": "50.000"
   },
   {
-    "id": "4",
-    "nombre": "tenis de mesa",
-    "precio": 15000
+    "id": "89a6e739",
+    "nombre": "Natacion",
+    "precio": "45.000"
   },
   {
-    "id": "5",
-    "nombre": "boxeo",
-    "precio": 45000
+    "id": "ef3f0d2b",
+    "nombre": "Atletismo",
+    "precio": "50.000"
   },
   {
-    "id": "250afe41-7397-4321-b61b-10201fc80475",
-    "nombre": "hola",
-    "precio": "10"
+    "id": "5c0b8a94",
+    "nombre": "Karate Junior",
+    "precio": "25.000"
+  },
+  {
+    "id": "a9dcd54a",
+    "nombre": "Karate Kempo",
+    "precio": "45.000"
+  },
+  {
+    "id": "f0e82731",
+    "nombre": "Natacion Junior",
+    "precio": "35.000"
+  },
+  {
+    "id": "a98ddfc0",
+    "nombre": "Atletismo",
+    "precio": "35.000"
   }
 ]

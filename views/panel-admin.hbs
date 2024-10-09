@@ -1,32 +1,30 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 {{>head}}
 
 <body>
-
-
     {{>navbar}}
-    {{>header}}
-
-
 
     <main>
-
         <form class="d-flex container buscar-id" role="search" action="/deportes/findById" method="get">
             <input class="form-control me-2" type="search" placeholder="Buscar por id" name="id" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
 
         <form action="/deportes/insert" method="post">
-        <fieldset class=" ">
-            <legend>Agregar Nuevo Deporte</legend>
-            <input type="text" placeholder="nombre" name ="nombre">
-            <input type="text" placeholder="precio" name ="precio">
-            <button class="btn btn-outline-secondary" type="submit">Insertar</button>
-        </fieldset>
+            <fieldset class="">
+                <legend>Agregar Nuevo Deporte</legend>
+                <input type="text" placeholder="nombre" name="nombre">
+                <input type="text" placeholder="precio" name="precio">
+                <button class="btn btn-outline-secondary" type="submit">Insertar</button>
+            </fieldset>
         </form>
+
+        {{#if msg}}
+        <div class="alert {{#if deportes.length}}alert-success{{else}}alert-danger{{/if}} mt-3 text-center">
+            {{msg}}
+        </div>
+        {{/if}}
 
         <h2>Listado de deportes</h2>
 
@@ -47,32 +45,49 @@
                     <th scope="row">{{this.id}}</th>
                     <td>{{this.nombre}}</td>
                     <td>${{this.precio}}</td>
-                    <td><button type="button" class="btn btn-success">Actualizar</button></td>
-                    <td><button type="button" class="btn btn-danger"><a href="/deportes/delete?id={{this.id}}"> Eliminar </a></button></td>
+                    <td><button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" data-id="{{this.id}}" data-nombre="{{this.nombre}}"
+                            data-precio="{{this.precio}}">Actualizar</button></td>
+                    <td><a href="/deportes/delete?id={{this.id}}" class="btn btn-danger"> Eliminar</a></td>
                 </tr>
                 {{/each}}
             </tbody>
         </table>
         {{/if}}
-
-        {{#unless deportes.length}}
-
-        <div class="mx-auto container">
-            <h3 class="text-center ">NO HAY DEPORTES ASOCIADOS</h3>
-            <img src="/assets/img/deportes-img2.jpg" alt="imagen deportes" class="w-75">
-        </div>
-        
-        {{/unless}}
-
-
-        
-
-
     </main>
 
-    {{>footer}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar Deporte</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/deportes/update" method="post">
+                    <input type="hidden" name="id" id="deporte-id">
 
-    {{>script}}
+                    <div class="modal-body d-flex">
+                        <div>
+                            <label for="nombre" id="nombre-deporte"></label>
+                            <input type="text" placeholder="nombre nuevo" name="nombre"  value="{{respuesta.deportes.nombre}}">
+                        </div>
+
+                        <div>
+                            <label for="precio" id="precio-deporte"> </label>
+                            <input type="text" placeholder="precio nuevo" name="precio"  value="{{respuesta.deportes.precio}}">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Guardar cambios</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        {{>footer}}
+        {{>script}}
 </body>
 
 </html>
