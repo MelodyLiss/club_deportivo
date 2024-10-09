@@ -2,60 +2,66 @@ const fs = require('fs/promises');
 const { v4: uuidv4 } = require('uuid');
 
 const findAllDeportes = async () => {
-
     try {
         const datos = await fs.readFile('./data/deportes.json', 'utf8');
         const deportes = JSON.parse(datos);
 
-        if (deportes.length == 0) {
+        //<> Para ordenarlos alfabeticamente
+        deportes.sort((a, b) => {
+            if (a.nombre < b.nombre) return -1; // a va antes que b
+            if (a.nombre > b.nombre) return 1;  // a va después que b
+            return 0;                             // son iguales
+        });
+
+        if (deportes.length === 0) {
             return {
                 msg: "NO HAY DEPORTES REGISTRADOS",
                 deportes
-            }
-        } return {
-            msg: "Listado actual de deportes",
-            deportes
+            };
         }
-    }
-
-    catch (error) {
+        
+        return {
+            deportes
+        };
+    } catch (error) {
         console.log(error);
         return {
             msg: "NO HAY DEPORTES REGISTRADOS",
             deportes: []
-        }
+        };
     }
 };
+
 
 const findByIdDeportes = async (id) => {
     try {
         const datos = await fs.readFile('./data/deportes.json', 'utf8');
         const deportes = JSON.parse(datos);
-        const deportesById = deportes.filter((dato) => {
-            return dato.id == id;
-        });
+        const deportesById = deportes.filter((dato) => dato.id == id);
 
-
-
-        if (deportes.length == 0) {
+        
+        if (deportesById.length === 0) {
             return {
-                msg: `No existe deporte asociado a ese id ${id}`,
-                deportes
-            }
-        } return {
-            msg: `El deporte asociado es:`,
-            deportes: deportesById
+                msg: `No existe deporte asociado a ese ID: ${id}`,
+                deportes,  
+                isError: true
+            };
         }
-    }
 
-    catch (error) {
+        return {
+            msg: `Deporte con id ${id} encontrado correctamente`,
+            deportes: deportesById,  
+        };
+    } catch (error) {
         console.log(error);
         return {
             msg: "Error en el servidor",
-            deportes: []
-        }
+            deportes: [],
+            isError: true
+        };
     }
-}
+};
+
 
 const insertDeportes = async (nombre, precio) => {
     try {
@@ -108,7 +114,7 @@ const updateFromIdDeportes = async (id, nombre, precio) => {
         }
 
         return {
-            msg: `No fue posible actualizar el deporte con id ${id}. No existe.`,
+            msg: `No fue posible actualizar el deporte con id ${id}.`,
             deportes
         };
     } catch (error) {
@@ -151,44 +157,10 @@ const deletebyIdDeportes = async (id) => {
     }
 }
 
-
-// BUSCAR POR NOMBRE
-
-const findByNombreDeportes = async (id) => {
-    try {
-        const datos = await fs.readFile('./data/deportes.json', 'utf8');
-        const deportes = JSON.parse(datos);
-        const deportesById = deportes.filter((dato) => {
-            return dato.id == id;
-        });
-
-
-
-        if (deportes.length == 0) {
-            return {
-                msg: `No existe deporte asociado a ese ${id}`,
-                deportes
-            }
-        } return {
-            msg: `El deporte asociado al ${id} es :`,
-            deportes: deportesById
-        }
-    }
-
-    catch (error) {
-        console.log(error);
-        return {
-            msg: "Error en el servidor",
-            deportes: []
-        }
-    }
-}
-
     module.exports = {
         findAllDeportes,
         findByIdDeportes,
         insertDeportes,
         updateFromIdDeportes,
         deletebyIdDeportes,
-        findByNombreDeportes
     }

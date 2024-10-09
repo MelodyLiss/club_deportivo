@@ -8,45 +8,44 @@
   {{>navbar}}
   {{>header}}
   <main>
-    <h2>Listado de deportes</h2>
+    <h2>Deportes disponibles</h2>
 
-    <form class="d-flex container" role="search">
-      <input class="form-control me-2" type="search" placeholder="Buscar deporte" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Buscar</button>
-    </form>
+    <form class="d-flex container" role="search" method="GET" action="/deportes/findByNombre">
+  <input class="form-control me-2" type="search" name="nombre" placeholder="Buscar deporte" aria-label="Search">
+  <button class="btn btn-outline-success" type="submit">Buscar</button>
+</form>
+
 
 
 
     <section class="container row w-100 mx-auto g-0">
 
-      {{#if deportes.length}}
+  {{#if deportes.length}}
 
-      {{#each deportes}}
+    {{#each deportes}}
 
       <div class="card col-4 m-4" style="width: 18rem;">
         <img src="/assets/img/deportes-general.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{this.nombre}}</h5>
-          <p class="card-text">Mejora tu condición física y mental con nuestro programa de entrenamiento personalizado
-          </p>
-          <p class=" valor">${{this.precio}} mensual </p>
+          <p class="card-text">Mejora tu condición física y mental con nuestro programa de entrenamiento personalizado</p>
+          <p class="valor">${{this.precio}} mensual </p>
           <a href="#" class="btn btn-danger">empezar</a>
         </div>
       </div>
 
-      {{/each}}
-      {{/if}}
+    {{/each}}
+  {{else}}
+    <div class="position-relative text-center">
+            <img src="/assets/img/deportes-img2.jpg" class="img-fluid" alt="imagen deporte">
+            <h3 class="position-absolute top-50 start-50 translate-middle bg-white p-3">
+                {{msg}}
+            </h3>
+        </div>
+  {{/if}}
 
-      {{#unless deportes.length}}
+</section>
 
-      <div class="mx-auto container">
-        <h3 class="text-center ">NO HAY DEPORTES REGISTRADOS</h3>
-        <img src="/assets/img/deportes-img2.jpg" alt="imagen deportes" class="w-75">
-      </div>
-
-      {{/unless}}
-
-    </section>
   </main>
 
 

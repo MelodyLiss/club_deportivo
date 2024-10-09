@@ -1,12 +1,7 @@
 [
   {
     "id": "1fd354a1",
-    "nombre": "Atletismo Junior",
-    "precio": "28.000"
-  },
-  {
-    "id": "40e0cffb",
-    "nombre": "Taekwondo",
+    "nombre": "Atletismo",
     "precio": "35.000"
   },
   {
@@ -35,13 +30,13 @@
     "precio": "45.000"
   },
   {
-    "id": "f0e82731",
-    "nombre": "Natacion Junior",
-    "precio": "35.000"
+    "id": "a98ddfc0",
+    "nombre": "Atletismo Junior",
+    "precio": "45.000"
   },
   {
-    "id": "a98ddfc0",
-    "nombre": "Atletismo",
-    "precio": "35.000"
+    "id": "3bbe8832",
+    "nombre": "Karate",
+    "precio": "25.000"
   }
 ]

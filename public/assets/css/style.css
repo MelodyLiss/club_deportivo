@@ -1,3 +1,8 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .navbar {
   background-color: rgb(165, 11, 11);
 }
@@ -8,6 +13,16 @@
 }
 .navbar a {
   color: beige;
+}
+
+h2 {
+  font-size: 3rem;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 90%;
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .card-title {
@@ -21,16 +36,6 @@
   color: rgb(18, 18, 86);
   font-size: 1.1rem;
   font-variant: small-caps;
-}
-
-h2 {
-  font-size: 3rem;
-  text-align: center;
-  margin: 0 auto;
-  max-width: 90%;
-  padding: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 
 .buscar-id {
@@ -59,9 +64,4 @@ footer {
   text-align: center;
   padding: 2rem;
   margin-top: 5rem;
-}
-
-a {
-  text-decoration: none;
-  color: white;
 }/*# sourceMappingURL=style.css.map */

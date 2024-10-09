@@ -1,41 +1,26 @@
- 
-//Barra de navegación
+// Estilos Globales
+a {
+    text-decoration: none;
+    color: white;
+}
 
-.navbar{
+// Barra de navegación
+.navbar {
     background-color: rgb(165, 11, 11);
-    .navbar-brand{
+    
+    .navbar-brand {
         font-size: 2rem;
-        color:rgb(214, 211, 211) !important;
+        color: rgb(214, 211, 211) !important;
         font-weight: bold;
     }
-    a{
+    
+    a {
         color: beige;
     }
 }
 
-
-// Tarjetas deportes
-
-.card-title{
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.3rem;
-}
-
-
-    .valor{
-        font-weight: bold;
-        color: rgb(18, 18, 86);
-        font-size: 1.1rem;
-        font-variant: small-caps;
-    }
-
-
-
-
-
-h2{
-    
+// Títulos
+h2 {
     font-size: 3rem;
     text-align: center;
     margin: 0 auto;
@@ -45,40 +30,49 @@ h2{
     margin-bottom: 2rem;
 }
 
-
-// buscar por id 
-
-.buscar-id{
-    margin: 0 auto;
-    padding: 2rem;
-   
+// Tarjetas de deportes
+.card-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.3rem;
 }
 
-.table{
+.valor {
+    font-weight: bold;
+    color: rgb(18, 18, 86);
+    font-size: 1.1rem;
+    font-variant: small-caps;
+}
+
+// Buscar por ID
+.buscar-id {
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+// Tabla
+.table {
     margin-bottom: 5rem;
 }
 
-fieldset{
+// Fieldset
+fieldset {
     background-color: rgb(230, 222, 222);
     padding: 1rem;
-    margin:0 auto;
+    margin: 0 auto;
     text-align: center;
-    
-    legend{
+
+    legend {
         font-size: 1.4rem;
         font-weight: 800;
     }
 }
 
-footer{
+// Footer
+footer {
     background-color: rgb(22, 18, 18);
     color: whitesmoke;
     text-align: center;
     padding: 2rem;
     margin-top: 5rem;
-}
-
-a{
-    text-decoration: none;
-    color:white;
 }

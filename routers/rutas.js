@@ -1,12 +1,13 @@
 
 const {Router} = require('express');
 const router = Router();
-const {findByAllController,findByIdController,insertController,updataController,deleteController,preupdataController} = require('../controllers/deportes.js')
+const {findByAllController,findByIdController,findByNombreController,insertController,updataController,deleteController,} = require('../controllers/deportes.js')
 
 
 router.get('/',findByAllController);
 router.get('/panel', findByAllController);
 router.get('/findById',findByIdController);
+router.get('/findByNombre',findByNombreController);
 router.post('/insert',insertController);
 router.post('/update',updataController);
 router.get('/delete',deleteController);
